@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from rest_framework.generics import ListAPIView
+from .models import Flashcard
+from .serializers import FlashcardSerializer
 
-# Create your views here.
+class FlashcardView(ListAPIView):
+    queryset = Flashcard.objects.all()
+    serializer_class = FlashcardSerializer
